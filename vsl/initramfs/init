@@ -1,0 +1,22 @@
+#!/bin/sh
+echo "### INIT SCRIPT ###"
+mkdir /proc /sys /tmp
+busybox mount -t proc none /proc
+busybox mount -t sysfs none /sys
+busybox mount -t devtmpfs none /dev
+#busybox mknod /dev/sda c 8 0
+#busybox mknod /dev/sda1 c 8 1
+busybox  mkdir -p dev/pts
+busybox mdev -s
+busybox mkdir -p /mnt/root
+busybox mount -t ext4 /dev/sda1 /mnt/root/
+busybox mount -t ramfs none /mnt/root/var/run
+busybox mount -t proc none /mnt/root/proc
+busybox mount -t sysfs none /mnt/root/sys
+busybox mount -t devtmpfs none /mnt/root/dev
+busybox mount -t devpts none /mnt/root/dev/pts
+
+exec /mnt/root/bin/busybox chroot /mnt/root /sbin/init
+
+echo -e "\nThis boot took $(cut -d' ' -f1 /proc/uptime) seconds\n"
+
