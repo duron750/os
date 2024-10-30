@@ -1,3 +1,0 @@
-00index.txt          73  
-traceroute0.99.15.gz
-                  22193  

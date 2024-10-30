@@ -1,4 +1,0 @@
-00index.txt          97  
-ruptime-570.tar.gz
-                   4064  
-ruptime-patch.tar  8192  

@@ -1,5 +1,0 @@
-00index.txt         129  
-deliver.README     2318  
-deliver.tar.gz    75004  
-deliver4slackware.tar.gz
-                  53143  

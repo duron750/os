@@ -1,3 +1,0 @@
-00index.txt          78  
-dig-2.0.lsm       61741  
-dig-2.0.tar.gz    61741  

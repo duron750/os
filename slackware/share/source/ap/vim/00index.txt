@@ -1,3 +1,0 @@
-00index.txt          78  
-vim-2.0.lsm        1241  
-vim-2.0.tar.gz   434712  

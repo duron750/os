@@ -1,4 +1,0 @@
-00index.txt          98  
-clisp-source.IAFA   654  
-clisp-source.tar.gz
-                2605598  

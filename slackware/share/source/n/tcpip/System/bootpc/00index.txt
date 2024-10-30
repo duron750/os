@@ -1,4 +1,0 @@
-00index.txt          97  
-bootpc-cam.tar.gz  7552  
-bootpc-net3.tar.gz
-                   7572  

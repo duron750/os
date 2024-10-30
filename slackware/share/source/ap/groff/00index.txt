@@ -1,3 +1,0 @@
-00index.txt          70  
-groff-1.09.tar.gz
-                 843088  

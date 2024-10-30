@@ -1,3 +1,0 @@
-00index.txt          72  
-samba-1.7.00.tar.gz
-                 191063  

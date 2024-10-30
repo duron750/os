@@ -1,3 +1,0 @@
-00index.txt          71  
-texinfo-3.1.tar.gz
-                 693012  
