@@ -1,0 +1,2 @@
+#!/bin/bash
+qemu-system-i386 -cpu 486 -m 256m -drive file=minix204.img,format=raw -net nic,model=ne2k_isa -net user

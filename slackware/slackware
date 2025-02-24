@@ -1,0 +1,2 @@
+#!/bin/bash
+qemu-system-i386 -cpu 486 -m 256m -drive file=slackware.img,format=raw -drive file=fat:rw:share,format=raw,media=disk -net nic,model=ne2k_isa -net user
