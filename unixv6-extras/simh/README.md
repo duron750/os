@@ -6,6 +6,14 @@ Alternatively. you can use run _pdp11 unixv6.ini_ with the three RK05 images her
 
 To get a working simulator, _git clone_ [https://github.com/simh/simh](https://github.com/simh/simh), change into the directory and run ```make pdp11```, you'll find the _pdp11_ command in the _BIN_ directory.
 
+This is the enhanced version that includes:
+- a new shell with cd command
+- halt instruction to safely turn off unix
+- a new tty console with delete key support
+The following kernels are available:
+- unix (enhanced with halt and tty syscalls
+- unix.bak (original kernel)
+
 Here's what happens and how you boot unix:
 
 ``` sh
