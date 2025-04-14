@@ -1,28 +1,28 @@
-\\#
+\#
 /*
  *   DC-11 driver
  *   Adapted from original UNIX version by
  *   Peter Collinson - Nov 76
  *   Copes with auto-dialing and carrier fail waits
  */
-\\#include "../param.h"
-\\#include "../conf.h"
-\\#include "../user.h"
-\\#include "../tty.h"
-\\#include "../deftty.h"
-\\#include "../proc.h"
+\#include "../param.h"
+\#include "../conf.h"
+\#include "../user.h"
+\#include "../tty.h"
+\#include "../deftty.h"
+\#include "../proc.h"
 
 /*
  * Base address of DC-11's. Minor device  i  is at
  * DCADDR + 10*i.
  */
-\\#define	DCADDR	0174000
-\\#define IENABLE	0100
+\#define	DCADDR	0174000
+\#define IENABLE	0100
 
 /*
  * Number of DC's for which table space is allocated.
  */
-\\#define	NDC11	14
+\#define	NDC11	14
 
 /*
  * Control bits in device registers
@@ -30,24 +30,24 @@
 /*
  * Default speed for stty function
  */
-\\#define DEF_SPEED	3
-\\#define MAX_SPEED	9		/* Max speed in table */
-\\#define	CDLEAD	01
-\\#define	CARRIER	04
-\\#define SPEED1	010
-\\#define	STOP1	0400
-\\#define STOP2	0
-\\#define	RQSEND	01
-\\#define	PARITY	040
-\\#define	ERROR	0100000
-\\#define	CTRANS	040000
-\\#define	RINGIND	020000
+\#define DEF_SPEED	3
+\#define MAX_SPEED	9		/* Max speed in table */
+\#define	CDLEAD	01
+\#define	CARRIER	04
+\#define SPEED1	010
+\#define	STOP1	0400
+\#define STOP2	0
+\#define	RQSEND	01
+\#define	PARITY	040
+\#define	ERROR	0100000
+\#define	CTRANS	040000
+\#define	RINGIND	020000
 
 
 /*
  * Time out value: should be equal to number of seconds required * 4
  */
-\\#define WSEC	40
+\#define WSEC	40
 
 
 struct	tty dc11[NDC11];

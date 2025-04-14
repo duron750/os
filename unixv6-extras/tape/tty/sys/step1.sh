@@ -210,6 +210,20 @@ if -r $1/ken/orig/sysent.c goto sysentend
 : sysentend
 
 
+: ken/sys4.c
+if -r $1/ken/orig/sys4.c goto sys4end
+   : no - is it in ken? If not ignore
+   if \! -r $1/ken/sys4.c goto sys4end
+      : no copy needed
+      cp $1/ken/sys4.c $1/ken/orig/sys4.c
+      : did the copy work?
+      if -r $1/ken/orig/sys4.c goto sys4ok
+	 echo "Failed: cp "$1"/ken/sys4.c "$1"/ken/orig/sys4.c"
+	 goto sys4end
+: sys4ok
+	echo "Success: cp "$1"/ken/sys4.c "$1"/ken/orig/sys4.c"
+: sys4end
+
 : conf/m40.s
 if -r $1/conf/orig/m40.s goto m40end
    : no - is it in conf? If not ignore

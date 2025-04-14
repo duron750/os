@@ -1,25 +1,25 @@
-\\#
+\#
 /*
  */
 
 /*
  *   KL/DL-11 driver
  */
-\\#include "../param.h"
-\\#include "../conf.h"
-\\#include "../user.h"
-\\#include "../tty.h"
-\\#include "../deftty.h"
+\#include "../param.h"
+\#include "../conf.h"
+\#include "../user.h"
+\#include "../tty.h"
+\#include "../deftty.h"
 
 /* base address */
-\\#define	KLADDR	0177560	/* console */
-\\#define	KLBASE	0176500	/* kl and dl11-a */
-\\#define	DLBASE	0175610	/* dl-e */
-\\#define	NKL11	1
-\\#define	NDL11	0
-\\#define DSRDY	02
-\\#define	IENABLE	0100
-\\#define	RDRENB	01
+\#define	KLADDR	0177560	/* console */
+\#define	KLBASE	0176500	/* kl and dl11-a */
+\#define	DLBASE	0175610	/* dl-e */
+\#define	NKL11	1
+\#define	NDL11	0
+\#define DSRDY	02
+\#define	IENABLE	0100
+\#define	RDRENB	01
 
 struct	tty kl11[NKL11+NDL11];
 

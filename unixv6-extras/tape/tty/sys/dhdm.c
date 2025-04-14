@@ -1,26 +1,26 @@
-\\#
+\#
 /*
  */
 
 /*
  *	DM-BB driver
  */
-\\#include "../param.h"
-\\#include "../tty.h"
-\\#include "../conf.h"
+\#include "../param.h"
+\#include "../tty.h"
+\#include "../conf.h"
 
-\\#define	DMADDR	0170500
+\#define	DMADDR	0170500
 
 struct	tty dh11[];
 int	ndh11;		/* Set by dh.c to number of lines */
 
-\\#define	DONE	0200
-\\#define	IENABLE	0100
-\\#define	SCENABL	040
-\\#define	CLSCAN	01000
-\\#define	TURNON	07	/* RQ send, CD lead, line enable */
-\\#define	TURNOFF	1	/* line enable only */
-\\#define	CARRIER	0100
+\#define	DONE	0200
+\#define	IENABLE	0100
+\#define	SCENABL	040
+\#define	CLSCAN	01000
+\#define	TURNON	07	/* RQ send, CD lead, line enable */
+\#define	TURNOFF	1	/* line enable only */
+\#define	CARRIER	0100
 
 struct dmregs {
 	int	dmcsr;

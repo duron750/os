@@ -56,6 +56,14 @@ echo cp sysent.c $1/ken/sysent.c
 cp sysent.c $1/ken/sysent.c
 : sysentend
 
+if -r $1/ken/orig/sys4.c goto sys4inst
+echo "No backup for "$1"/ken/sys4.c - not installed"
+goto sys4end
+: sys4inst
+echo cp sys4.c $1/ken/sys4.c
+cp sys4.c $1/ken/sys4.c
+: sys4end
+
 if -r $1/conf/orig/m40.s goto m40inst
 echo "No backup for "$1"/conf/m40.s - not installed"
 goto m40end

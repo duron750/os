@@ -51,6 +51,13 @@ if -r $1/ken/sysent.c goto sysentdiff
 cmp sysent.c $1/ken/sysent.c
 : sysentfin
 
+if -r $1/ken/sys4.c goto sys4diff
+   echo "$1/ken/sys4.c not installed"
+   goto sys4fin
+: sys4diff
+cmp sys4.c $1/ken/sys4.c
+: sys4fin
+
 if -r $1/conf/m40.s goto m40diff
    echo "$1/conf/m40.s not installed"
    goto m40fin

@@ -1,4 +1,4 @@
-\\#
+\#
 /*
  * This version of tty.c started life in UCLA and made its was in into
  * various UK universities, all of whom hacked it for local use.
@@ -12,16 +12,16 @@
  * Peter Collinson
  * July  2023
  */
-\\#include "../param.h"
-\\#include "../systm.h"
-\\#include "../user.h"
-\\#include "../tty.h"
-\\#include "../deftty.h"
-\\#include "../proc.h"
-\\#include "../inode.h"
-\\#include "../file.h"
-\\#include "../reg.h"
-\\#include "../conf.h"
+\#include "../param.h"
+\#include "../systm.h"
+\#include "../user.h"
+\#include "../tty.h"
+\#include "../deftty.h"
+\#include "../proc.h"
+\#include "../inode.h"
+\#include "../file.h"
+\#include "../reg.h"
+\#include "../conf.h"
 
 /* Maptab serves two functions :-
  *  maptab[c] =   parity bit for c |  lower case representation of c
@@ -83,11 +83,11 @@ struct {
 };
 
 /* KL Hardware bits */
-\\#define DONE 0200
-\\#define IENABLE 0100
+\#define DONE 0200
+\#define IENABLE 0100
 
-\\#define ECHOING 1
-\\#define WRITING 0
+\#define ECHOING 1
+\#define WRITING 0
 
 /*
  * Ttyopen performs functions common to tty open routines,
@@ -718,7 +718,7 @@ struct tty *atp;
 
 	/* Parity checking, who needs it ?
 	 * pc Removed
-\\#	ifdef	KLPARITY
+\#	ifdef	KLPARITY
 	if ((tp->t_flags &ALL8BITS) == 0)  {
 		if ((tp->t_flags &(ODDP|EVENP)) == ODDP)
 			c =| (maptab[c] &0200);
@@ -727,7 +727,7 @@ struct tty *atp;
 		else  if ((tp->t_flags &(ODDP|EVENP)) == ODDP|EVENP)
 			c =| 0200;
 	}
-\\#	endif */
+\#	endif */
 	addr->tttbuf =  c;
 
 out:
