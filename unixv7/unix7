@@ -1,0 +1,2 @@
+#/bin/sh
+pdp11 nboot.ini
