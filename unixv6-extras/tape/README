@@ -1,2 +1,0 @@
-this folder contains the same code as the root folders, but the # character in c and h file is escaped with \ to be able to paste it to simh unix6 original version.
-In the original version unix6 interprets # as delete character.

@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/sh
 qemu-system-i386 -m 4m -drive file=svr4.img,format=raw 
