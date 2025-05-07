@@ -1,4 +1,0 @@
-start with pdp11 nboot.ini
-at prompt type boot
-type hp(0,0)unix
-Control+D
