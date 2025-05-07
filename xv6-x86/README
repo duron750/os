@@ -43,8 +43,8 @@ We don't process error reports (see note on top of this file).
 
 BUILDING AND RUNNING XV6
 
-To build xv6 on an x86 ELF machine (like Linux or FreeBSD), run
-"make". On non-x86 or non-ELF machines (like OS X, even on x86), you
+To build xv6 on an x86 ELF machine (like Linux), run
+"make". On FreeBSD install and run gmake. On x64 OS you need to add i386-gcc and 0386-binutils. On non-x86 or non-ELF machines (like OS X, even on x86), you
 will need to install a cross-compiler gcc suite capable of producing
 x86 ELF binaries (see https://pdos.csail.mit.edu/6.828/).
 Then run "make TOOLPREFIX=i386-jos-elf-". Now install the QEMU PC
