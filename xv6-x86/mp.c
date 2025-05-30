@@ -102,6 +102,7 @@ mpinit(void)
     panic("Expect to run on an SMP");
   ismp = 1;
   lapic = (uint*)conf->lapicaddr;
+
   for(p=(uchar*)(conf+1), e=(uchar*)conf+conf->length; p<e; ){
     switch(*p){
     case MPPROC:
@@ -110,6 +111,7 @@ mpinit(void)
         cpus[ncpu].apicid = proc->apicid;  // apicid may differ from ncpu
         ncpu++;
       }
+      
       p += sizeof(struct mpproc);
       continue;
     case MPIOAPIC:

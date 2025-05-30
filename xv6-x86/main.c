@@ -77,7 +77,7 @@ startothers(void)
   for(c = cpus; c < cpus+ncpu; c++){
     if(c == mycpu())  // We've started already.
       continue;
-
+      
     // Tell entryother.S what stack to use, where to enter, and what
     // pgdir to use. We cannot use kpgdir yet, because the AP processor
     // is running in low  memory, so we use entrypgdir for the APs too.
@@ -87,7 +87,7 @@ startothers(void)
     *(int**)(code-12) = (void *) V2P(entrypgdir);
 
     lapicstartap(c->apicid, V2P(code));
-
+      
     // wait for cpu to finish mpmain()
     while(c->started == 0)
       ;

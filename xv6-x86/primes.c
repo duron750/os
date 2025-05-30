@@ -1,10 +1,9 @@
 #include "types.h"
 #include "user.h"
 
-
-int
-main(void)
+int primes(int* a)
 {
+	printf(1, "Calculating primes up to %d\n", *a);
 	int p[2];
 	int i=0;
 	int j=0;
@@ -27,12 +26,25 @@ main(void)
 		close(p[0]);
 		exit();
 	} else {
-		for (i=1;i<36;i++) {
+		for (i=1;i<*a;i++) {
 //			printf(1, "Sent: %d, pid %d\n", i, getpid());			
 			write(p[1], &i, sizeof(i));
 		}	
 		close(p[1]);
 		printf(1, "main process exiting\n");
 	}
+}
+
+int
+main(int argc, char *argv[])
+{
+	if(argc > 1 && argc < 3)
+	{		
+		int a=atoi(argv[1]);
+		primes(&a);
+	} else {
+		printf(1,"Usage: primes <max_number>\n");
+	}
+
 	exit();
 }
