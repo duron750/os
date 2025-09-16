@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 usage() {
 	echo "usage: $0 -l lab [-s subdir] [-f flags] [-n] [-c]"
@@ -61,9 +61,9 @@ fi
 
 cd "$DST"
 if [ -z "$FLAGS" ]; then
-  gmake qemu-nox
+  make qemu-nox
 else
-  gmake qemu-nox "$FLAGS"
+  make qemu-nox "$FLAGS"
 fi
 
 exit 0

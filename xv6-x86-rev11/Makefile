@@ -32,7 +32,7 @@ OBJS = \
 # TOOLPREFIX = i386-jos-elf
 
 # Using native tools (e.g., on X86 Linux)
-TOOLPREFIX = /usr/local/bin/i386-unknown-freebsd14.2-
+#TOOLPREFIX = /usr/local/bin/i386-unknown-freebsd14.2-
 
 # Try to infer the correct TOOLPREFIX if not set
 ifndef TOOLPREFIX

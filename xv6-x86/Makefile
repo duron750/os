@@ -32,7 +32,8 @@ OBJS = \
 # TOOLPREFIX = i386-jos-elf
 
 # Using native tools (e.g., on X86 Linux)
-TOOLPREFIX = /usr/local/bin/i386-unknown-freebsd14.2-
+#TOOLPREFIX = /usr/local/bin/i386-unknown-freebsd14.2-
+TOOLPREFIX =/home/dan/Downloads/github/toolchains/i386-elf-14.2.0-Linux-x86_64/bin/i386-elf-
 
 # Try to infer the correct TOOLPREFIX if not set
 ifndef TOOLPREFIX
@@ -51,7 +52,7 @@ TOOLPREFIX := $(shell if i386-jos-elf-objdump -i 2>&1 | grep '^elf32-i386$$' >/d
 endif
 
 # If the makefile can't find QEMU, specify its path here
-#QEMU = qemu-system-i386
+QEMU = qemu-system-i386
 
 # Try to infer the correct QEMU
 ifndef QEMU

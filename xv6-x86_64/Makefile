@@ -70,6 +70,7 @@ OBJS := $(addprefix $(KOBJ_DIR)/,$(OBJS))
 
 # Cross-compiling (e.g., on Mac OS X)
 #CROSS_COMPILE ?=/usr/local/bin/i386-unknown-freebsd14.2-
+CROSS_COMPILE ?=/home/dan/Downloads/github/toolchains/x86_64-elf-14.2.0-Linux-x86_64/bin/x86_64-elf-
 
 # If the makefile can't find QEMU, specify its path here
 QEMU ?= qemu-system-x86_64
@@ -90,7 +91,7 @@ CFLAGS += -g -Wall -MD -fno-omit-frame-pointer
 CFLAGS += -ffreestanding -fno-common -nostdlib -Iinclude -gdwarf-2 $(XFLAGS) $(OPT)
 CFLAGS += $(call cc-option, -fno-stack-protector, "")
 CFLAGS += $(call cc-option, -fno-stack-protector-all, "")
-ASFLAGS = -gdwarf-2 -Wa -Iinclude $(XFLAGS)
+ASFLAGS = -gdwarf-2 -W -Iinclude $(XFLAGS)
 
 xv6.img: $(OUT)/bootblock $(OUT)/kernel.elf fs.img
 	dd if=/dev/zero of=xv6.img count=10000
@@ -232,8 +233,6 @@ UPROGS := \
 	mkdir \
 	rm \
 	sh \
-	stressfs \
-	usertests \
 	wc \
 	zombie
 
