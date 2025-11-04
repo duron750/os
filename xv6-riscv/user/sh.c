@@ -77,7 +77,10 @@ runcmd(struct cmd *cmd)
     if(ecmd->argv[0] == 0)
       exit(1);
     exec(ecmd->argv[0], ecmd->argv);
-    fprintf(2, "exec %s failed\n", ecmd->argv[0]);
+    //shift the entire cmd string 1 position to left, removing leading "/"
+    char *cmd_name = ecmd->argv[0];
+    memmove(cmd_name, cmd_name + 1, strlen(cmd_name));
+    fprintf(2, "exec %s failed\n", cmd_name);
     break;
 
   case REDIR:
@@ -158,16 +161,24 @@ main(void)
 
   // Read and run input commands.
   while(getcmd(buf, sizeof(buf)) >= 0){
-    if(buf[0] == 'c' && buf[1] == 'd' && buf[2] == ' '){
-      // Chdir must be called by the parent, not the child.
-      buf[strlen(buf)-1] = 0;  // chop \n
-      if(chdir(buf+3) < 0)
-        fprintf(2, "cannot cd %s\n", buf+3);
+    char *cmd = buf;
+    cmd++; //first character in buf is "/"
+    while (*cmd == ' ' || *cmd == '\t')
+      cmd++;
+    if (*cmd == '\n') // is a blank command
       continue;
+
+    if(cmd[0] == 'c' && cmd[1] == 'd' && cmd[2] == ' '){
+      // Chdir must be called by the parent, not the child.
+      cmd[strlen(cmd)-1] = 0;  // chop \n
+
+      if(chdir(cmd+3) < 0)
+        fprintf(2, "cannot cd %s\n", cmd+3);
+    } else {
+      if(fork1() == 0)
+        runcmd(parsecmd(buf)); //execute command with / added
+      wait(0);
     }
-    if(fork1() == 0)
-      runcmd(parsecmd(buf));
-    wait(0);
   }
   exit(0);
 }

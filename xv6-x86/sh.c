@@ -162,7 +162,7 @@ main(void)
     if(buf[1] == 'c' && buf[2] == 'd' && buf[3] == ' '){
       // Chdir must be called by the parent, not the child.
       buf[strlen(buf)-1] = 0;  // chop \n
-      if(chdir(buf+4) < 0)
+      if(chdir(buf+3) < 0)
         printf(2, "cannot cd %s\n", buf+3);
       continue;
     }
