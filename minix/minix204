@@ -1,2 +1,11 @@
 #!/bin/sh
-qemu-system-i386 -cpu 486 -m 256m -drive file=minix204.img,format=raw -net nic,model=ne2k_isa -net user
+#qemu-system-i386 -cpu 486 -m 256m -drive file=minix204.img,format=raw -net nic,model=ne2k_isa -net user
+
+qemu-system-i386 \
+-cpu 486 \
+-m 64m \
+-drive file=minix204.img,format=raw \
+-netdev user,id=net0,hostfwd=tcp:127.0.0.1:2223-:23 \
+-device ne2k_isa,netdev=net0,iobase=0x300,irq=3
+
+
