@@ -676,7 +676,7 @@ procdump(void)
   struct proc *p;
   char *state;
 
-  printf("\n");
+/*  printf("\n");
   for(p = proc; p < &proc[NPROC]; p++){
     if(p->state == UNUSED)
       continue;
@@ -685,6 +685,22 @@ procdump(void)
     else
       state = "???";
     printf("%d %s %s", p->pid, state, p->name);
-    printf("\n");
+    printf("\n"); 
+  } */
+  
+  printf("\nPID\tPPID\tSTATE\tSIZE\tNAME\n"); // Updated Header
+  for(p = proc; p < &proc[NPROC]; p++){
+    acquire(&p->lock);
+    if(p->state != UNUSED){
+      state = states[p->state];
+      
+      // Get Parent PID safely
+      int ppid = (p->parent) ? p->parent->pid : 0;
+      
+      // Print PID, PPID, State, Size, and Name
+      printf("%d\t%d\t%s\t%d\t%s", p->pid, ppid, state, (int)p->sz, p->name);
+      printf("\n");
+    }
+    release(&p->lock);
   }
 }

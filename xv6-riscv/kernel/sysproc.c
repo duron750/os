@@ -107,3 +107,43 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+extern struct proc proc[NPROC]; // Access the global process table
+
+uint64
+sys_ps(void)
+{
+  uint64 addr;
+  struct proc *p;
+  struct uproc u;
+  int i = 0;
+
+  // Get the user-space address of the struct array
+  argaddr(0, &addr);
+
+  for(p = proc; p < &proc[NPROC]; p++){
+    acquire(&p->lock);
+    if(p->state != UNUSED){
+      // Fill the "public" structure
+      u.pid = p->pid;
+      u.ppid = p->parent ? p->parent->pid : 0;
+      u.sz = p->sz;
+      safestrcpy(u.name, p->name, sizeof(u.name));
+      
+      static char *states[] = {"unused", "used", "sleep", "runble", "run", "zombie"};
+      safestrcpy(u.state, states[p->state], sizeof(u.state));
+
+      // We release the lock before copyout to avoid holding it during memory I/O
+      release(&p->lock);
+
+      // Copy one struct at a time into the user's array at the correct offset
+      if(copyout(myproc()->pagetable, addr + i*sizeof(struct uproc), (char *)&u, sizeof(u)) < 0)
+        return -1;
+      
+      i++;
+    } else {
+      release(&p->lock);
+    }
+  }
+  return i; // Return total processes found
+}

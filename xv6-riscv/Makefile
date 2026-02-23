@@ -144,6 +144,8 @@ UPROGS=\
 	$U/_dorphan\
 	$U/_sleep\
 	$U/_uptime\
+	$U/_fourway\
+	$U/_ps\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
