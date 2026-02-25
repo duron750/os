@@ -146,6 +146,7 @@ UPROGS=\
 	$U/_uptime\
 	$U/_fourway\
 	$U/_ps\
+	$U/_ed\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
