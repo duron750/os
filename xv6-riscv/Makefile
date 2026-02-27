@@ -147,6 +147,8 @@ UPROGS=\
 	$U/_fourway\
 	$U/_ps\
 	$U/_ed\
+	$U/_cp\
+	$U/_mv\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

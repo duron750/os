@@ -30,7 +30,8 @@ wc(int fd, char *name)
     printf("wc: read error\n");
     exit(1);
   }
-  printf("%d %d %d %s\n", l, w, c, name);
+  printf("Lines\tWords\tLetters\tFile\n");
+  printf("%d\t%d\t%d\t%s\n", l, w, c, name);
 }
 
 int
