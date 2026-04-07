@@ -1,2 +1,2 @@
 #!/bin/sh
-qemu-system-i386 -m 4m -drive file=svr4.img,format=raw 
+qemu-system-i386 -m 4m -drive file=svr4.img,format=raw -display sdl

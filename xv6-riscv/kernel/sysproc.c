@@ -147,3 +147,15 @@ sys_ps(void)
   }
   return i; // Return total processes found
 }
+
+uint64
+sys_freemem(void)
+{
+	return freemem();
+}
+
+uint64
+sys_totalmem(void)
+{
+	return totalmem();
+}
