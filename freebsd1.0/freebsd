@@ -1,0 +1,22 @@
+#!/bin/bash
+# Qemu boot script for FreeBSD 1.0 (1993)
+# by Ramses Soto-Navarro <ramses@sotosystems.com>, 10/13/2023
+
+NAME="FreeBSD 1.0"
+CPU=486
+MEM=64M
+HDA=hda.qcow2
+BOOT=c
+qemu-system-i386 \
+-name "$NAME" \
+-cpu $CPU \
+-m $MEM \
+-hda $HDA \
+-drive file=share.img,format=raw,index=1,media=disk \
+-netdev user,id=net0,hostfwd=tcp::2223-:23 \
+-device ne2k_isa,netdev=net0 \
+-display sdl \
+-enable-kvm \
+-boot $BOOT
+
+#qemu-system-x86_64 -cpu 486 -m 256M -hda hda.qcow2 -boot c -cdrom 1.0-disc1.iso -net nic,model=ne2k_isa -net user,hostfwd=tcp::2300-:23 -display sdl -enable-kvm

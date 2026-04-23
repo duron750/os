@@ -1,0 +1,5 @@
+    __asm__ __volatile__("sti\n\t"
+                         "hlt\n\t"
+                         : : : "memory");
+    need_resched = 1;
+    schedule();
