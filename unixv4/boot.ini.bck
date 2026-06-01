@@ -1,0 +1,15 @@
+set cpu 11/45
+set throttle 20%
+
+set tc en
+
+att rk0 root.rk
+att rk1 src.rk
+att rk2 man.rk
+
+set dh en
+att dh 4444
+
+#d sr 2
+d sr 173030
+b rk0
